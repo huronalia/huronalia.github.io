@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <link rel="icon" type="image/svg+xml" href="logo_v2.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&family=Doto:wght@100..900&family=Fascinate+Inline&family=Major+Mono+Display&family=Sixtyfour+Convergence:SCAN,XELA,YELA@-17,-19,-13&family=Workbench:BLED,SCAN@3,-28&display=swap"
+          rel="stylesheet">
+    <meta charset="utf-8"/>
+    <meta name="generator" content="pandoc"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"/>
+    <meta name="author" content="Huronalia"/>
+    <title>Huronalia</title>
+    <style>
+        /* Reset CSS */
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed,
+        figure, figcaption, footer, header, hgroup,
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+
+        article, aside, details, figcaption, figure,
+        footer, header, hgroup, menu, nav, section {
+            display: block;
+        }
+
+        body {
+            line-height: 1;
+        }
+
+        ol, ul {
+            list-style: none;
+        }
+
+        blockquote, q {
+            quotes: none;
+        }
+
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+            content: '';
+            content: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+
+        /* Main CSS */
+        @import url('https://fonts.cdnfonts.com/css/jetbrains-mono-2');
+        @font-face { font-family: "ZTBros"; src: url('font.otf'); }
+
+        :root {
+            --font-family: "JetBrains Mono", monospace;
+            --line-height: 1.3rem;
+            --border-thickness: 1.8px;
+            --text-color: #000;
+            --text-color-alt: #666;
+            /*--background-color: #FFFAF7;*/
+            --background-color: #fff;
+            --background-color-alt: #fff;
+            /*--accent-color: #056c91;*/
+            /*--accent-color: #FF5D00;*/
+            --accent-color: black;
+            --accent-color2: #FF9E00;
+            /*--accent-color2: #111111;*/
+
+            --font-weight-normal: 400;
+            --font-weight-medium: 600;
+            --font-weight-bold: 800;
+
+            font-family: var(--font-family);
+            font-optical-sizing: auto;
+            font-weight: var(--font-weight-normal);
+            font-style: normal;
+            font-variant-numeric: tabular-nums lining-nums;
+            font-size: 13px;
+        }
+
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text-color: #fff;
+                --text-color-alt: #aaa;
+                --background-color: #000;
+                --background-color-alt: #111;
+                /*--accent-color: #4499ff;*/
+                --accent-color: #FF5D00;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        * + * {
+            margin-top: var(--line-height);
+        }
+
+        html {
+            display: flex;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            flex-direction: column;
+            align-items: center;
+            background: var(--background-color);
+            color: var(--text-color);
+        }
+
+        body {
+            position: relative;
+            width: 100%;
+            margin: 0;
+            padding: 0 2ch; /* Removed top padding */
+            max-width: calc(min(100ch, round(down, 100%, 1ch)));
+            line-height: var(--line-height);
+            overflow-x: hidden;
+        }
+
+        @media screen and (max-width: 480px) {
+            :root {
+                font-size: 14px;
+            }
+
+            body {
+                padding: 0 1ch; /* Removed top padding */
+            }
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: var(--font-weight-bold);
+            margin: calc(var(--line-height) * 2) 0 var(--line-height);
+            line-height: var(--line-height);
+        }
+
+        h1 {
+            font-size: 4rem;
+            line-height: calc(2 * var(--line-height));
+            margin-bottom: calc(var(--line-height) * 2);
+            text-transform: uppercase;
+            /*font-family: 'Major Mono Display'*/
+            /*font-family: 'Cabin Sketch';*/
+            font-family: 'ZTBros';
+
+
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            /*font-family: 'Sixtyfour Convergence';*/
+            /*font-weight: 200*/
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            /*font-family: 'Sixtyfour Convergence';*/
+            /*font-weight: 100*/
+        }
+
+        hr {
+            position: relative;
+            display: block;
+            height: var(--line-height);
+            margin: calc(var(--line-height) * 1.5) 0;
+            border: none;
+            color: var(--text-color);
+        }
+
+        hr:after {
+            display: block;
+            content: "";
+            position: absolute;
+            top: calc(var(--line-height) / 2 - var(--border-thickness));
+            left: 0;
+            width: 100%;
+            border-top: var(--border-thickness) solid var(--text-color); /* Changed from double to solid */
+            height: 0;
+        }
+
+        a {
+            text-decoration-thickness: var(--border-thickness);
+            color: var(--accent-color);
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        p {
+            margin-bottom: var(--line-height);
+            word-break: break-word;
+            word-wrap: break-word;
+            hyphens: auto;
+        }
+
+        strong {
+            font-weight: var(--font-weight-bold);
+        }
+
+        em {
+            font-style: italic;
+        }
+
+        table {
+            position: relative;
+            top: calc(var(--line-height) / 2);
+            width: calc(round(down, 100%, 1ch));
+            border-collapse: collapse;
+            margin: 0 0 calc(var(--line-height) * 2);
+            margin: 0;
+        }
+
+        th, td {
+            border: var(--border-thickness) solid var(--text-color);
+            padding: calc((var(--line-height) / 2)) calc(1ch - var(--border-thickness) / 2) calc((var(--line-height) / 2) - (var(--border-thickness)));
+            line-height: var(--line-height);
+            vertical-align: top;
+            text-align: left;
+        }
+
+        th {
+            font-weight: 700;
+        }
+
+        .width-min {
+            width: 0%;
+        }
+
+        .width-auto {
+            width: 100%;
+        }
+
+        /* Add background image container */
+        .header-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+            background-image: url('waves_test.gif'); /* Replace with your image path */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+
+            image-rendering: pixelated; /* Chrome, Edge */
+        }
+
+        /* Ensure header wrapper has transparent background */
+        /* Header wrapper for centering effect */
+        /* Ensure header wrapper fills viewport exactly */
+        .header-wrapper {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: var(--line-height) 0;
+            position: relative;
+            background-image: url('your-image.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            /* Add this for crisp pixels */
+
+        }
+
+
+        /* Remove margins from header table */
+        .header {
+            margin: 0;
+            background: var(--background-color); /* Ensure solid background */
+        }
+
+        /* Make sure the sticky header has solid background */
+        .header-sticky {
+            background: var(--background-color);
+            padding: 0; /* Remove any padding */
+        }
+
+        /* Remove the gradient from table cells or make them fully opaque */
+        .header td[style*="gradient"] {
+            background: var(--background-color) !important;
+        }
+
+        /* Sticky container for the header */
+        .header-sticky {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: var(--background-color);
+            width: 100%; /* Add this line */
+            margin: 0
+        }
+
+        /* Make sticky header opaque when scrolling */
+        .header-sticky.scrolled {
+            background: var(--background-color);
+        }
+
+
+        .header {
+            margin: 0; /* Remove default margin */
+        }
+
+        .header h1 {
+            margin: 0;
+        }
+
+        .header tr td:last-child {
+            text-align: right;
+        }
+
+        ul, ol {
+            padding: 0;
+            margin: 0 0 var(--line-height);
+        }
+
+        ul {
+            list-style-type: square;
+            padding: 0 0 0 2ch;
+        }
+
+        ol {
+            list-style-type: none;
+            counter-reset: item;
+            padding: 0;
+        }
+
+        ol li:before {
+            content: counters(item, ".") ". ";
+            counter-increment: item;
+            font-weight: var(--font-weight-medium);
+        }
+
+        li {
+            margin: 0;
+            padding: 0;
+        }
+
+        pre {
+            white-space: pre;
+            overflow-x: auto;
+            margin: var(--line-height) 0;
+            overflow-y: hidden;
+        }
+
+        pre, code {
+            font-family: var(--font-family);
+        }
+
+        code {
+            font-weight: var(--font-weight-medium);
+        }
+
+        /*figure {*/
+        /*  margin: calc(var(--line-height) * 2) 3ch;*/
+        /*  overflow-x: auto;*/
+        /*  overflow-y: hidden;*/
+        /*}*/
+
+
+        figure {
+            margin: calc(var(--line-height) * 2) 3ch;
+            overflow-x: auto;
+            overflow-y: hidden;
+            text-align: center; /* Add this to center content */
+        }
+
+
+        figure pre {
+            text-align: left; /* Keep ASCII art left-aligned */
+            display: inline-block;
+            margin: 0 auto;
+        }
+
+        figcaption {
+            text-align: left; /* Keep ASCII art left-aligned */
+            display: block;
+            font-style: italic;
+            margin-top: var(--line-height);
+        }
+
+        input, button, textarea {
+            border: var(--border-thickness) solid var(--text-color);
+            padding: calc(var(--line-height) / 2 - var(--border-thickness)) calc(1ch - var(--border-thickness));
+            margin: 0;
+            font: inherit;
+            font-weight: inherit;
+            height: calc(var(--line-height) * 2);
+            width: auto;
+            overflow: visible;
+            background: var(--background-color);
+            color: var(--text-color);
+            line-height: normal;
+            -webkit-font-smoothing: inherit;
+            -moz-osx-font-smoothing: inherit;
+            -webkit-appearance: none;
+        }
+
+        button {
+            text-transform: uppercase;
+            font-weight: var(--font-weight-medium);
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: var(--background-color-alt);
+        }
+
+        button:active {
+            transform: translate(2px, 2px);
+        }
+
+        .grid {
+            --grid-cells: 0;
+            display: flex;
+            gap: 1ch;
+            width: calc(round(down,100%,(1ch * var(--grid-cells)) - (1ch * var(--grid-cells) - 1)));
+            margin-bottom: var(--line-height);
+        }
+
+        .grid > * {
+            flex: 0 0 calc(round(down, (100% -(1ch *(var(--grid-cells) -1))) / var(--grid-cells), 1 ch));
+        }
+
+        .grid:has(> :last-child:nth-child(1)) {
+            --grid-cells: 1;
+        }
+
+        .grid:has(> :last-child:nth-child(2)) {
+            --grid-cells: 2;
+        }
+
+        .grid:has(> :last-child:nth-child(3)) {
+            --grid-cells: 3;
+        }
+
+        .grid:has(> :last-child:nth-child(4)) {
+            --grid-cells: 4;
+        }
+
+        /* Custom styles for MassReg */
+        .company-name {
+            color: var(--accent-color);
+            font-weight: var(--font-weight-bold);
+        }
+
+        .service-box {
+            border: var(--border-thickness) solid var(--text-color);
+            padding: var(--line-height) 2ch;
+            margin-bottom: var(--line-height);
+        }
+
+        .contact-section {
+            margin-top: calc(var(--line-height) * 3);
+            padding-top: calc(var(--line-height) * 2);
+            border-top: var(--border-thickness) solid var(--text-color); /* Changed from double to solid */
+        }
+
+        footer {
+            margin-top: calc(var(--line-height) * 4);
+            padding-top: calc(var(--line-height) * 2);
+            border-top: var(--border-thickness) solid var(--text-color);
+            text-align: center;
+        }
+
+        .logo {
+            display: inline-block;
+            width: 10ch;
+            height: calc(var(--line-height) * 3);
+            margin: var(--line-height) auto;
+        }
+
+        nav.main-nav {
+            margin-bottom: 0; /* Remove bottom margin since it's in the table now */
+            padding-bottom: 0; /* Remove padding */
+            border-bottom: none; /* Remove border since it's in a table cell */
+            text-align: left; /* Align the links to the left */
+        }
+
+        #header-titlebox {
+           /* #008CD0 */
+           background: linear-gradient(to bottom, #FFFFFF 0%, #FFFFFF 88%, #008CD0 110%)
+        }
+
+        /*nav.main-nav a {*/
+        /*    margin-right: 2ch;*/
+        /*}*/
+    </style>
+    <!--     style="background: linear-gradient(to bottom, #FFF5E4 0%, #FFF5E4 90%, #008CD0 100%)"-->
+</head>
+<body>
+<div class="header-background" id="headerBg"></div>
+<div class="header-wrapper">
+    <div class="header-sticky">
+        <table class="header" style="background-color: white; top: 0;">
+            <tr>
+                <td colspan="2" rowspan="2" class="width-auto" id="header-titlebox">
+                    <h1 class="title"><span class="company-name">HURONALIA</span></h1>
+                    <span class="subtitle" , style="color: #000000; ">Applied Artificial Intelligence Research and Engineering </span>
+                </td>
+                <td colspan="2" , rowspan="2" , class="width-auto" style="background: white">
+                    <img src="logo_v2.svg" alt="logo" width="40px">
+                </td>
+                <th>Est.</th>
+                <td class="width-min">2025</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td class="width-min" style="color:#008CD0">InDev.</td>
+            </tr>
+            <tr>
+                <td colspan="6" , rowspan="1" class="width-auto">
+                    <nav class="main-nav" style="justify-content: left">
+                        <a href="#introduction">Introduction</a>
+                        <a href="#ai_in_sm">Media Fills</a>
+                        <a href="#about">PVA 700</a>
+                        <a href="#contact">Contact</a>
+                    </nav>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+<h2 id="introduction">Huronalia</h2>
+<p>
+
+    We research and design AI for sensitive applications where manual labor is still the gold standard. Our current research is on aseptic drug manufacturing regulatory
+    compliance. We are currently piloting a device for assistance with the compliance of 21 CFR § 211.113 -- control of
+    microbiological contamination.
+
+</p>
+
+<hr>
+<h2>PVA 700</h2>
+<p>
+Our pilot product is the <strong>PVA 700</strong>: a benchtop device that automates media fill inspection by processing vials in
+    parallel, saving thousands of man hours a year. Our device is fully validated and compliant with 21 CFR Part 11,
+    and therefore suitable for use in regulated
+    industries. To learn more please continue reading.
+</p>
+
+<figure>
+    <img src="example_detections.png" height="400ch"/>
+</figure>
+<hr>
+
+<h2 id="ai_in_sm">Problem 1: Media Fills Suck</h2>
+<p>
+    The FDA mandates a media fill inspection, at least once every six months, for at minimum 10,000 vials per filling
+    line. Each vial is filled, cultured, and inspected by hand slowly and carefully for potential contamination. Most of
+    the time a perfectly sterile, clear vial of media is picked up, looked at, and put down. This takes considerable
+    time and costs a considerable amount of money.
+</p>
+
+<p>
+    More than just text, artificial intelligence models can process visual information at extremely high accuracy and
+    at superhuman speed. They are so fast that comparatively, most of the time spent in a conventional automated visual
+    analysis machine is the physical: unloading a tray, gently handling each vial, and loading each back another tray.
+    Each vial is inspected sequentially, one at a time and therefore, the process is slow.
+</p>
+
+<figure>
+  <pre>
+  ┌────────┐   ┌───────────┐     ┌────┐
+  │ Images │──▶│  Trained  │──┬─▶│ Go │
+  └────────┘   │   Model   │  │  └────┘
+               └───────────┘  │ < Determined by AI
+                              │  ┌───────┐
+                              └─▶│ No Go │
+                                 └───────┘
+    </pre>
+    <figcaption>
+        An AI model can make these determinations in less than 10ms.
+    </figcaption>
+</figure>
+
+<p>
+    The FDA is quickly solidifying its stance on AI in regulated industries. It can provide real benefit for regulatory
+    compliance and firms that adopt AI early will have a disproportionate advantage. We have created a device, the PVA 700,
+    which at its core leverages AI to detect and asses vials at speeds no other automated visual inspection machine can
+    match.
+</p>
+
+<hr>
+
+<h2 id="about">OUR SOLUTION: The PVA 700</h2>
+<h3>----> Our innovation: process multiple vials at the same time</h3>
+<p>
+    We have created an affordable benchtop media fill analysis device. Our device processes vials in parallel,
+    without removal from the tray. This allows us to dramatically reduce cost
+    and speed analysis. Our theoretical parallel vial analysis (PVA) speed is greater than 700 vials per minute. We do
+    this by agitating and imaging vials in the tray. A single camera frame captures each vial in a tray and our
+    algorithms can nearly instantly assess each vial for turbidity.
+
+</p>
+
+<figure>
+    <pre>
+               ┌────────────┐                                       ─┐
+               │ Place Tray │                                        │
+               │ In Device  │                                        │
+               └─┬──────────┘                                        │
+                 │ User Confirms Start of Analysis                   │
+               ┌─▼────────────────────────────────────────────────┐  │
+               │            Device Gently    Time:                │  │
+               │            Agitates Vials   30 Seconds           │  │
+               └─┬─────────────┬─────────────┬─────────────┬──────┘  │
+               ┌─▼──────┐    ┌─▼──────┐    ┌─▼──────┐    ┌─▼──────┐  │
+               │Camera 1│    │Camera 2│    │Camera 3│    │Camera 4│  │
+               └─┬──────┘    └─┬──────┘    └─┬──────┘    └─┬──────┘  │
+            ┌  ┌─▼──────┐    ┌─▼──────┐    ┌─▼──────┐    ┌─▼──────┐  │
+            │  │Image   │    │Image   │    │Image   │    │Image   │  │
+            │  │Correct │    │Correct │    │Correct │    │Correct │  │ Entire process
+            │  │and     │    │and     │    │and     │    │and     │  │ occurs in 35
+            │  │Adjust  │    │Adjust  │    │Adjust  │    │Adjust  │  │ seconds for a
+            │  │(35ms)  │    │(35ms)  │    │(35ms)  │    │(35ms)  │  │ single tray.
+            │  └─┬──────┘    └─┬──────┘    └─┬──────┘    └─┬──────┘  │
+            │  ┌─▼─────────────▼─────────────▼─────────────▼──────┐  │
+            │  │              Image Stitch  (300ms)               │  │
+Analysis of │  └─┬────────────────────────────────────────────────┘  │
+entire tray │  ┌─▼────────────────────────────────────────────────┐  │
+  occurs in │  │         Vial Identification (234ms)              │  │
+  less than │  └─┬──┬──┬──┬──┬──┬──┬──┬──┬──┬──┬──┬──┬──┬──┬──┬──┬┘  │
+ one second │    ▼  ▼  ▼  ▼  ▼  ▼  ▼  ▼  ▼  ▼  ▼  ▼  ▼  ▼  ▼  ▼  ▼   │
+            │    1  2  3  4  5  6  7  8  9  10 11 12 13 14  ...  N   │
+            │    │  │  │    ┌───────────────────────┐   │  │  │  │   │
+            │    └──┴──┴────► Extract Crop of Image ◄───┴──┴──┴──┘   │
+            │               └─┬─────────────────────┘                │
+            │       ┌─────────┘ Each crop presented sequentially     │
+            │  ┌────▼─────────────────────────────────────────────┐  │
+            │  │         Specifically Trained AI Model            │  │
+            │  │                  (15ms / Vial)                   │  │
+            │  └─┬────────────────────────┬───────────────────────┘  │
+            │    │Possible Outcome 1.     │ Possible Outcome 2.      │
+            │  ┌─▼────────────────────┐ ┌─▼───────────────────────┐  │
+            │  │Classification: Clear │ │Classification: Turbid   │  │
+            │  │Probability: 0.999938 │ │Probability: 0.813499293 │  │
+            │  └──────────────────────┘ └─────────────────────────┘  │
+            └─                                                      ─┘
+    </pre>
+    <figcaption>
+        Overview of analysis process
+    </figcaption>
+</figure>
+
+
+<details>
+    <summary>
+        Technical Details
+    </summary>
+    <table style="font-size: 0.8rem">
+        <tr>
+            <th class="width-min">Device Name</th>
+            <td class="width-auto">PVA 700</td>
+        </tr>
+        <tr>
+            <th>Speed</th>
+            <td>~1000 Vials/Min</td>
+        </tr>
+        <tr>
+            <th>Device Cost</th>
+            <td>100,000$ (Est.)</td>
+        </tr>
+        <tr>
+            <th>Cameras</th>
+            <td>8</td>
+        </tr>
+        <tr>
+            <th>Persistent Storage</th>
+            <td>10 TB</td>
+        </tr>
+        <tr>
+            <th>21 CFR Part 11</th>
+            <td>COMPLIANT</td>
+        </tr>
+        <tr>
+            <th>Compute Performance</th>
+            <td>15.11 TFLOPS (FP32)</td>
+        </tr>
+    </table>
+</details>
+
+<h3>----> Training our AI Model</h3>
+<p>
+    Our foundational model is trained on images from hundreds of thousands of vials and is sufficiently accurate on
+    generalized datasets. However, each system is fine-tuned and validated on your unique data, ensuring human level
+    accuracy at superhuman speeds. Our training and validation procedures are carefully documented and compliant with
+    FDA regulation 21 CFR Part 11.
+
+    To do so, we will create a custom model for your specific environment, and validate accordingly.
+</p>
+
+<!--<figure>-->
+<!--    <figcaption>-->
+<!--        insert figure here of training loss and validation loss-->
+<!--    </figcaption>-->
+<!--</figure>-->
+
+<!--  <figure>-->
+<!--    <img src="example_detections.png" height="400"/>-->
+<!--  <figcaption>Example AI/ML vial analysis. Green circles are sterile vials, red are contaminations.</figcaption>-->
+<!--  </figure>-->
+
+<!--<h2 id="services">How it works</h2>-->
+
+<!--<div class="service-box">-->
+<!--  <strong>1. VIAL AGITATION</strong>-->
+<!--  <p>An onboard shaker agitates cell culture media ensuring proper homoginization, revealing contamination.</p>-->
+<!--</div>-->
+
+<!--<div class="service-box">-->
+<!--  <strong>2. VISUAL INSPECTION</strong>-->
+<!--  <p>Multiple onboard cameras image vials from the bottom.</p>-->
+<!--</div>-->
+
+<!--<div class="service-box">-->
+<!--  <strong>3. VISUAL ANALYSIS</strong>-->
+<!--  <p>Computer vision algorithms create a composite images of the tray, and identify individual vials, which a AI/ML-->
+<!--  model then identifies as sterile or contaminated. An entire tray may be analyzed in less than one second.-->
+<!--  </p>-->
+<!--</div>-->
+
+<!--<div class="service-box">-->
+<!--  <strong>4. VERIFICATION</strong>-->
+<!--  <p>The associated PVA software lets a supervisor or regulatory professional assess model performance for accuracy and completeness.</p>-->
+<!--</div>-->
+
+
+<!--<p><small>* Prices vary based on organization size and complexity. Contact us for a customized quote.</small></p>-->
+
+<h2 id="contact" class="contact-section">Contact Us</h2>
+
+<table>
+    <tr>
+        <th class="width-min">Email</th>
+        <td class="width-auto">chris@huronalia.com</td>
+    </tr>
+    <tr>
+        <th>Address</th>
+        <td>PO BOX 380189 <br>Cambridge, MA, 02238</td>
+    </tr>
+    <tr>
+        <th>Hours</th>
+        <td>Monday - Friday: 9:00 AM - 5:00 PM EST</td>
+    </tr>
+</table>
+
+<footer>
+    <!--    <img src="logo.svg" alt="MassReg Logo" style="height:50px; width:50px;">-->
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+    <!--  <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">-->
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+    <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+    <logo>
+        <svg width="50px" height="50px" viewBox="0 0 1492 1772" version="1.1" xmlns="http://www.w3.org/2000/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/"
+             style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(-0.342953,0.271036,-0.271036,-0.342953,2626.4,781.394)">
+        <g>
+            <path id="p16lr5qWWX"
+                  d="M4756,1645C5136,1940 5112.16,2020.35 5081.16,1996.35C5066.16,1984.35 4956,2477 4945,2467C4934,2457 4894,2423 4855,2392C4817,2361 4781,2330 4775,2324C4749,2296 4329,1968 4240,1908C4226,1898 4198,1878 4177,1863C4065,1780 3947,1700 3937,1700C3930,1700 3910,1715 3893,1733C3828,1802 3697,1808 3638,1743C3629,1733 3610,1713 3596,1698C3577,1676 3562,1670 3530,1670C3508,1670 3490,1672 3490,1675C3490,1677 3499,1694 3510,1712C3555,1786 3526,1864 3411,1978C3320,2069 3243,2112 3172,2115C3139,2117 3123,2123 3115,2135C3086,2185 3046,2219 2990,2240C2935,2261 2930,2265 2930,2292C2930,2334 2906,2381 2862,2422C2823,2458 2707,2534 2665,2550C2632,2562 2634,2573 2671,2613C2688,2630 2714,2660 2727,2677C2748,2704 2759,2710 2792,2710C2848,2710 2890,2731 2988,2807C3036,2845 3086,2883 3100,2892C3179,2946 3222,2979 3255,3008C3291,3041 3294,3042 3388,3044C3509,3048 3565,3067 3795,3182C4053,3312 4178,3421 4258,3584C4292,3655 2238,3602 2146,3526C1983,3393 1856,3249 1777,3110C1751,3063 1693,2982 1649,2930C1547,2809 1527,2770 1490,2616C1435,2385 1453,2330 1616,2219C1690,2170 1715,2135 1753,2029C1813,1864 1831,1845 2010,1757C2062,1731 2123,1699 2145,1686C2167,1673 2235,1634 2295,1600C2356,1565 2412,1531 2422,1523C2432,1514 2441,1485 2445,1448C2449,1413 2463,1368 2479,1340C2513,1278 2677,1127 2730,1110C2767,1098 2772,1099 2839,1134C2877,1154 2912,1170 2917,1170C2929,1170 3030,1045 3030,1030C3030,1025 3014,1000 2995,975C2942,905 2938,838 2980,746C3045,601 3214,509 3332,554C3366,567 3382,569 3404,561C3419,555 3462,550 3501,550C3627,550 3689,588 3881,783C3929,831 3972,870 3978,870C3983,870 4008,859 4031,845C4109,801 4238,818 4297,882C4358,947 4355,1059 4289,1194C4272,1227 4261,1259 4264,1266C4267,1273 4322,1317 4387,1364C4489,1439 4549,1484 4756,1645ZM4068,1654C4520.7,2078.74 5258.47,2359.34 4861,1871C4571,1633 4177,1336 4160,1342C4147,1347 3980,1570 3980,1583C3980,1590 4019,1622 4068,1654ZM1930,3146C2004,3264 4164,3600 4082,3509C4014,3434 3869,3338 3710,3262C3542,3181 3390,3131 3390,3157C3390,3161 3408,3201 3430,3244C3501,3386 3424,3530 3424,3460C3423,3285 3392,3247 3050,2990C2869,2854 2831,2830 2810,2835C2770,2845 2767,2854 2780,2924C2794,2998 2798,3105 2788,3115C2784,3119 2774,3120 2765,3117C2754,3112 2750,3096 2750,3056C2750,2960 2673,2757 2610,2690C2581,2659 2578,2658 2511,2661C2473,2663 2438,2661 2434,2657C2430,2653 2445,2642 2468,2632C2506,2617 2527,2594 2516,2583C2514,2580 2479,2570 2440,2560C2401,2550 2366,2539 2363,2537C2361,2534 2385,2527 2417,2521C2449,2515 2501,2505 2532,2499C2602,2485 2746,2403 2795,2349C2829,2311 2836,2287 2824,2244C2813,2202 2688,2152 2552,2135C2479,2125 2489,2106 2566,2108C2646,2111 2718,2127 2788,2155C2845,2178 2849,2178 2906,2164C3008,2138 3024,2125 3035,2048C3042,2004 3041,2002 2986,1942C2883,1832 2583,1600 2542,1600C2535,1600 2453,1645 2359,1700C2266,1756 2138,1827 2074,1860C1916,1940 1914,1942 1864,2082C1824,2196 1796,2235 1717,2294C1570,2404 1563,2424 1606,2605C1636,2732 1661,2779 1756,2890C1799,2940 1831,2987 1930,3146ZM3264,1981C3318,1943 3419,1834 3426,1803C3434,1771 3411,1743 3232,1569C3037,1380 2834,1230 2773,1230C2743,1230 2613,1348 2583,1402C2557,1449 2551,1550 2573,1568C2579,1574 2617,1595 2655,1615C2790,1687 2958,1822 3051,1934C3079,1968 3114,2001 3128,2008C3166,2025 3212,2016 3264,1981ZM3843,1648C3915,1570 4032,1419 4106,1309C4257,1085 4280,969 4179,938C4108,917 4050,966 4050,1045C4050,1059 4044,1070 4038,1070C4031,1070 3939,987 3834,886C3729,785 3627,694 3609,684C3560,659 3468,661 3402,690L3349,713L3281,647L3234,665C3171,689 3121,735 3094,795C3064,859 3064,891 3095,929C3141,983 3153,980 3233,897C3363,763 3441,748 3578,831C3711,911 4040,1164 4040,1187C4040,1206 3904,1391 3753,1578C3707,1635 3700,1663 3728,1679C3766,1701 3802,1692 3843,1648ZM3540,1574C3623,1578 3690,1577 3690,1572C3690,1568 3698,1555 3708,1544C3748,1502 3840,1376 3840,1364C3840,1353 3806,1273 3763,1183C3744,1143 3728,1141 3709,1177C3693,1207 3695,1234 3718,1272C3733,1298 3733,1301 3713,1322C3701,1335 3688,1357 3685,1373C3671,1428 3590,1416 3443,1339C3359,1294 3334,1291 3296,1321C3266,1344 3256,1342 3266,1315C3276,1290 3346,1261 3384,1267C3401,1269 3442,1283 3475,1297C3617,1357 3620,1357 3636,1336C3658,1306 3654,1277 3630,1283C3596,1292 3541,1271 3518,1240C3506,1223 3487,1210 3476,1210C3446,1210 3435,1200 3414,1155C3399,1124 3388,1114 3362,1109C3319,1100 3292,1075 3268,1023C3258,999 3245,980 3241,980C3234,980 3017,1243 2997,1276C2992,1285 3022,1314 3087,1367C3141,1410 3220,1480 3264,1522C3341,1598 3343,1599 3367,1583C3387,1569 3413,1568 3540,1574ZM3900,1296C3900,1288 3906,1275 3913,1268C3920,1261 3936,1240 3949,1221L3973,1187L3930,1151C3906,1131 3850,1087 3806,1052L3725,989L3695,1027C3679,1047 3641,1090 3613,1122C3543,1198 3544,1230 3616,1230C3634,1230 3641,1223 3646,1203C3649,1187 3657,1164 3663,1151C3678,1121 3745,1076 3763,1083C3771,1086 3798,1138 3825,1199C3852,1263 3878,1310 3886,1310C3894,1310 3900,1304 3900,1296ZM3541,1138C3565,1116 3670,969 3670,958C3670,950 3560,875 3513,851C3425,807 3337,835 3310,915C3282,1001 3370,1108 3412,1040C3433,1007 3447,1017 3452,1070C3457,1119 3481,1160 3505,1160C3512,1160 3528,1150 3541,1138Z"
+                  style="fill:rgb(2,1,2);fill-rule:nonzero;"/>
+            <path id="pj3i8B1lk"
+                  d="M1940,2758C1940,2720 1997,2633 2047,2595C2101,2554 2187,2526 2230,2535C2269,2544 2268,2555 2228,2558C2185,2561 2111,2596 2077,2628C2061,2643 2033,2683 2013,2718C1989,2760 1972,2780 1959,2780C1946,2780 1940,2773 1940,2758Z"
+                  style="fill:rgb(2,1,2);fill-rule:nonzero;"/>
+            <path id="p13BB8iPfY"
+                  d="M1906,2522C1897,2507 1928,2480 1980,2456C2012,2442 2047,2436 2100,2436C2166,2435 2182,2439 2230,2466C2260,2483 2286,2505 2288,2514C2291,2530 2289,2530 2253,2514C2157,2473 2106,2470 2022,2501C1949,2528 1914,2534 1906,2522Z"
+                  style="fill:rgb(2,1,2);fill-rule:nonzero;"/>
+            <g transform="matrix(-2.96428,3.75083,1.35422,1.07024,4817.9,-5564.49)">
+                <path d="M1092.33,2406.98L1884.04,2406.98C1851.13,2872.29 1683.91,3212.6 1488.19,3212.6C1292.46,3212.6 1125.25,2872.29 1092.33,2406.98Z"
+                      style="fill:rgb(255,209,0);"/>
+                <path d="M1092.33,2406.98L1884.04,2406.98C1851.13,2872.29 1683.91,3212.6 1488.19,3212.6C1292.46,3212.6 1125.25,2872.29 1092.33,2406.98Z"
+                      style="fill:white;"/>
+                <path d="M1064.94,2421.84C1100.23,2920.72 1278.35,3289.91 1488.19,3289.91C1698.03,3289.91 1876.15,2920.72 1911.44,2421.84C1913.04,2399.16 1910.9,2375.69 1905.6,2357.84C1900.29,2340 1892.39,2329.66 1884.04,2329.66L1092.33,2329.66C1083.99,2329.66 1076.08,2340 1070.78,2357.84C1065.48,2375.69 1063.34,2399.16 1064.94,2421.84ZM1092.33,2406.98L1884.04,2406.98C1851.13,2872.29 1683.91,3212.6 1488.19,3212.6C1292.46,3212.6 1125.25,2872.29 1092.33,2406.98Z"/>
+                <g>
+                    <clipPath id="_clip1">
+                        <path d="M1092.33,2406.98L1884.04,2406.98C1851.13,2872.29 1683.91,3212.6 1488.19,3212.6C1292.46,3212.6 1125.25,2872.29 1092.33,2406.98Z"/>
+                    </clipPath>
+                    <g clip-path="url(#_clip1)">
+                        <g transform="matrix(-0.196855,-1.20802,-0.147525,0.184422,1735.88,2931.4)">
+                            <rect x="-237.938" y="376.019" width="998.087" height="382.543"
+                                  style="fill:rgb(255,158,0);"/>
+                        </g>
+                        <g transform="matrix(-0.196855,-1.20802,-0.167326,0.209176,1687.14,2988.24)">
+                            <rect x="-237.938" y="376.019" width="998.087" height="382.543"
+                                  style="fill:rgb(255,93,0);"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g transform="matrix(-1.79484,-1.41846,1.41846,-1.79484,3734.27,6434.29)">
+                <path d="M1064.39,519.685C413.462,687.364 286.295,1823.02 1062.99,2031.5" style="fill:none;"/>
+            </g>
+        </g>
+    </g>
+</svg>
+    </logo>
+
+    <!--  <p>© 2025 Mirari Regulatory LLC. All rights reserved.</p>-->
+    <p>© 2025 Huronalia Research and Engineering LLC. All rights reserved.</p>
+    <p><small>700 PVA Patent Pending</small></p>
+</footer>
+
+
+<script>
+    window.addEventListener('scroll', function () {
+        const scrolled = window.pageYOffset;
+        const headerBg = document.getElementById('headerBg');
+        const headerSticky = document.querySelector('.header-sticky');
+
+        // Fade out background image as user scrolls
+        const opacity = Math.max(0, 1 - (scrolled / 500));
+        headerBg.style.opacity = opacity;
+
+        // Add class to header when scrolled
+        if (scrolled > 50) {
+            headerSticky.classList.add('scrolled');
+        } else {
+            headerSticky.classList.remove('scrolled');
+        }
+    });
+</script>
+
+</body>
+</html>
