@@ -561,7 +561,7 @@
 <hr>
 <h2>PVA 700</h2>
 <p>
-The <strong>PVA 700</strong> is our flagship benchtop device that revolutionizes media fill inspection through parallel vial processing. By automating this critical quality control step, we help laboratories save thousands of hours annually. We're actively seeking validation partners—contact chris@huronalia.com to pilot this technology.
+The <strong>PVA 700</strong> is our flagship benchtop device that revolutionizes media fill inspection through parallel vial processing. By automating this critical quality control step, we help laboratories save thousands of hours annually while maintaining the visual inspection methods trusted by the industry. We're actively seeking validation partners—contact chris@huronalia.com to pilot this technology.
 </p>
 
 <figure>
@@ -571,7 +571,11 @@ The <strong>PVA 700</strong> is our flagship benchtop device that revolutionizes
 
 <h2 id="ai_in_sm">The Challenge: Manual Media Fill Inspections</h2>
 <p>
-FDA regulations require media fill inspections at least twice yearly, with a minimum of 10,000 vials per filling line. Currently, technicians manually culture and inspect each vial for contamination—a meticulous process where operators repeatedly examine perfectly sterile vials. This labor-intensive requirement consumes significant time and resources.
+FDA regulations require media fill inspections at least twice yearly, with a minimum of 10,000 vials per filling line. Currently, technicians manually culture and inspect each vial for contamination—a meticulous process where operators repeatedly examine perfectly sterile vials. For facilities running multiple lines, this can mean millions of individual inspections annually, consuming significant time and resources.
+</p>
+
+<p>
+Traditional automated inspection systems rely on headspace analysis—a fundamentally different approach from the visual turbidity assessment that manufacturers trust. These systems also carry significant capital costs, often exceeding seven figures, making them inaccessible for many facilities. Additionally, current manual processes lack comprehensive data logging, creating challenges for quality assurance and regulatory audits.
 </p>
 
 <p>
@@ -580,16 +584,16 @@ Modern AI vision systems excel at visual inspection tasks, processing images wit
 
 <figure>
   <pre>
-  ┌────────┐   ┌───────────┐     ┌────┐
-  │ Images │──▶│  Trained  │──┬─▶│ Go │
-  └────────┘   │   Model   │  │  └────┘
+  ┌────────┐   ┌───────────┐     ┌──────┐
+  │ Images │──▶│  Trained  │──┬─▶│ Pass │
+  └────────┘   │   Model   │  │  └──────┘
                └───────────┘  │ < AI Decision
-                              │  ┌───────┐
-                              └─▶│ No Go │
-                                 └───────┘
+                              │  ┌──────┐
+                              └─▶│ Fail │
+                                 └──────┘
     </pre>
     <figcaption>
-        AI-powered analysis completes in under 10ms per decision
+        AI-powered turbidity detection completes in under 10ms per vial
     </figcaption>
 </figure>
 
@@ -604,6 +608,29 @@ The FDA is establishing clear frameworks for AI deployment in regulated industri
 <p>
 The PVA 700 transforms media fill inspection through an innovative parallel processing approach. Unlike traditional systems, our device analyzes vials directly in their trays—eliminating individual handling while dramatically reducing costs and inspection time. With a theoretical throughput exceeding 700 vials per minute, the system captures entire tray sections in single camera frames while proprietary algorithms instantly assess each vial for turbidity indicators.
 </p>
+
+<h3>How It Works</h3>
+
+<p>
+The PVA 700 operates through a carefully orchestrated inspection process.
+    Vials remain in their standard loading trays throughout the entire inspection cycle,
+    eliminating the risk of mix-ups or contamination. Once loaded, the system
+    provides controlled agitation to resuspend any bacterial growth. Then, our under-tray imaging system
+    illuminates and photographs all vials in parallel through the tray. This unique bottom-up imaging approach captures the entire vial contents
+    in a single frame, providing enough information to assess turbidity of the vials, a process complete in seconds.
+
+</p>
+
+<p>
+Our patented system combines three core technologies:
+</p>
+
+<ol>
+    <li><strong>Intelligent Agitation System:</strong> Controlled vibration suspends any bacterial growth without removing vials from trays, ensuring consistent detection of contamination</li>
+    <li><strong>Multi-Camera Vision Array:</strong> High-resolution cameras capture vial images through optically transparent tray bottoms, enabling simultaneous inspection of multiple vials</li>
+    <li><strong>AI-Powered Analysis:</strong> State-of-the-art computer vision models detect and classify each vial's turbidity state with exceptional accuracy</li>
+</ol>
+
 
 <figure>
     <pre>
@@ -654,50 +681,49 @@ entire tray │  ┌─▼──────────────────
     </figcaption>
 </figure>
 
+<h3>Technical Specifications</h3>
+<ul>
+    <li>Compatible with standard ISO 8362-1 vials (2R through 100R formats)</li>
+    <li>Accommodates vials from 2mL to 100mL volumes</li>
+    <li>Supports glass and polymer vials (COP, COC)</li>
+    <li>Configurable LED illumination for optimal imaging across vial types</li>
+    <li>Intuitive software interface with real-time detection visualization</li>
+</ul>
 
-<details>
-    <summary>
-        Technical Details
-    </summary>
-    <table style="font-size: 0.8rem">
-        <tr>
-            <th class="width-min">Device Name</th>
-            <td class="width-auto">PVA 700</td>
-        </tr>
-        <tr>
-            <th>Speed</th>
-            <td>~700 Vials/Min</td>
-        </tr>
-        <tr>
-            <th>Cameras</th>
-            <td>8</td>
-        </tr>
-        <tr>
-            <th>Persistent Storage</th>
-            <td>10 TB</td>
-        </tr>
-        <tr>
-            <th>21 CFR Part 11</th>
-            <td>COMPLIANT</td>
-        </tr>
-        <tr>
-            <th>Compute Performance</th>
-            <td>15.11 TFLOPS (FP32)</td>
-        </tr>
-    </table>
-</details>
-
-<h3>----> Training our AI Model</h3>
+<h3>Regulatory Compliance & Data Integrity</h3>
 <p>
-    Our foundational model may be trained on images from hundreds of thousands of vials and will be sufficiently accurate on
-    generalized datasets. However, each system is fine-tuned and validated on your unique data, ensuring human level
-    accuracy at superhuman speeds. To do so, we will create a custom model for your specific environment, and validate accordingly.
+The PVA 700 includes comprehensive data management capabilities designed for FDA compliance:
+</p>
+<ul>
+    <li>Automatic logging of all inspection results with unique vial identifiers</li>
+    <li>Complete audit trail of user actions and system calibrations</li>
+    <li>21 CFR Part 11 compliant electronic records</li>
+    <li>Built-in calibration protocols for system validation</li>
+    <li>Exportable reports for quality documentation</li>
+</ul>
+
+<h3>Return on Investment</h3>
+<p>
+By processing vials in parallel without individual handling, the PVA 700 delivers:
+</p>
+<ul>
+    <li>90%+ reduction in inspection time compared to manual methods</li>
+    <li>Fraction of the cost of traditional automated systems</li>
+    <li>Elimination of repetitive strain injuries from manual handling</li>
+    <li>Enhanced data integrity through automated documentation</li>
+    <li>Consistent, objective detection criteria</li>
+</ul>
+
+<hr>
+
+<h2>Partner With Us</h2>
+<p>
+We're seeking forward-thinking pharmaceutical manufacturers and contract labs to validate the PVA 700 in real-world environments. As an early partner, you'll have the opportunity to shape the future of media fill inspection while gaining a competitive advantage through cutting-edge automation.
 </p>
 <p>
-    Models must be validated for specific vials, media, and with reference organisms from real filling lines.
-</p>
-
-<!--<figure>-->
+<strong>Ready to revolutionize your media fill process?</strong><br>
+Contact chris@huronalia.com to schedule a demonstration and discuss pilot opportunities.
+</p><!--<figure>-->
 <!--    <figcaption>-->
 <!--        insert figure here of training loss and validation loss-->
 <!--    </figcaption>-->
