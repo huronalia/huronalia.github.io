@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/form.css">
+    <title>Get Started - Huronalia Research</title>
+</head>
+<body>
+<div class="form-section">
+    <div class="form-container" id="get-started">
+        <h2>I would like to genuinely thank you for expressing interest.</h2>
+        <p class="subtitle">
+            It takes courage to embrace early technology. We have built this
+            in the hopes that it makes your life easier in the pursuit of new drugs, rigorous analysis,
+            academic publications, cutting-edge biology, medicinal chemistry, late nights, and early mornings.
+            As scientists, we are many steps away from the patient, but the efforts we share
+            may someday change their life for the better.
+        </p>
+        <p class="subtitle">
+            It is our hope that you might use this software to do good and be happy.
+        </p>
+        <form id="annotationForm">
+            <div class="form-group">
+                <label>Name <span class="required">*</span></label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label>Email <span class="required">*</span></label>
+                <input type="email" id="email" name="email" required, placeholder="name@website.com">
+            </div>
+
+            <button type="submit" class="btn-submit" id="submitBtn">Submit, and we'll reach out</button>
+
+            <div id="status" class="status"></div>
+        </form>
+    </div>
+</div>
+<script>
+    if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+    }
+</script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2fab3f19-e851-494f-840c-812d38c6fa09" name="Changes" comment="changed some language 2" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="30NH6ghmE2EtsZxILbBWtoIh7oQ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+    <option name="sortByType" value="true" />
+    <option name="sortKey" value="BY_TYPE" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/chrisbuswinka/Documents/Huronalia Research and Engineering LLC/Website/huronalia.github.io&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.new.ui&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-b26f3e71634d-JavaScript-PY-251.26094.141" />
+        <option value="bundled-python-sdk-9f8e2b94138c-36ea0e71a18c-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.26094.141" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2fab3f19-e851-494f-840c-812d38c6fa09" name="Changes" comment="" />
+      <created>1753460936778</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1753460936778</updated>
+      <workItem from="1753460937908" duration="1870000" />
+      <workItem from="1753469549077" duration="3371000" />
+      <workItem from="1753481098877" duration="39000" />
+      <workItem from="1753481148456" duration="1744000" />
+      <workItem from="1753738331641" duration="2333000" />
+      <workItem from="1753909701553" duration="2390000" />
+      <workItem from="1754081956519" duration="3446000" />
+    </task>
+    <task id="LOCAL-00001" summary="first file add">
+      <option name="closed" value="true" />
+      <created>1753461008779</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1753461008779</updated>
+    </task>
+    <task id="LOCAL-00002" summary="updated some information">
+      <option name="closed" value="true" />
+      <created>1753738438278</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1753738438278</updated>
+    </task>
+    <task id="LOCAL-00003" summary="updated some information">
+      <option name="closed" value="true" />
+      <created>1753738713039</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1753738713039</updated>
+    </task>
+    <task id="LOCAL-00004" summary="removed dark mode">
+      <option name="closed" value="true" />
+      <created>1753739249475</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1753739249475</updated>
+    </task>
+    <task id="LOCAL-00005" summary="changed some language">
+      <option name="closed" value="true" />
+      <created>1753909964965</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1753909964965</updated>
+    </task>
+    <task id="LOCAL-00006" summary="changed some language 2">
+      <option name="closed" value="true" />
+      <created>1753910577699</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1753910577699</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="first file add" />
+    <MESSAGE value="updated some information" />
+    <MESSAGE value="removed dark mode" />
+    <MESSAGE value="changed some language" />
+    <MESSAGE value="changed some language 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed some language 2" />
+  </component>
+</project>
