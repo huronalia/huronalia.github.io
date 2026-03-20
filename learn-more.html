@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@100..900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/learn-more.css">
+    <title>Learn More — Huronalia Research</title>
+</head>
+<body>
+
+    <nav class="nav">
+        <a href="index.html" class="nav-logo">Huronalia</a>
+        <a href="form.html" class="nav-cta">Sign Up for Early Access</a>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <p class="overline">High Content Screening Analysis</p>
+        <h1>One day of imaging data.<br>One thousand hours to analyze it.</h1>
+        <p class="hero-sub">That's the state of the field today. We built something different.</p>
+    </section>
+
+    <!-- Speed stat -->
+    <section class="stat-block">
+        <div class="stat">
+            <span class="stat-number">20 hrs</span>
+            <span class="stat-label">Current per-plate analysis time</span>
+        </div>
+        <div class="stat-arrow">→</div>
+        <div class="stat">
+            <span class="stat-number">~10 min</span>
+            <span class="stat-label">On a standard desktop</span>
+        </div>
+        <div class="stat-arrow">→</div>
+        <div class="stat">
+            <span class="stat-number">~90 sec</span>
+            <span class="stat-label">On an AI-optimized server</span>
+        </div>
+    </section>
+
+    <div class="section-rule"></div>
+
+    <!-- What it computes -->
+    <section class="content-section">
+        <div class="section-label">What We Compute</div>
+        <h2>Interpretable cellular features. Not a black box.</h2>
+        <p>
+            Our technology extracts individual morphological features from fluorescence microscopy images;
+            the same measurements you are already familiar with: cell and nuclear size, shape, texture,
+            intensity distributions, and spatial relationships between organelles and compartments.
+        </p>
+        <p>
+            These features are the foundation of high content screening, toxicology assessment,
+            spatial genomics, and digital pathology. We didn't invent new outputs. We made computing
+            them 100× faster without sacrificing the interpretability your downstream analysis depends on.
+        </p>
+        <div class="feature-grid">
+            <div class="feature-item">Cell &amp; nuclear morphology</div>
+            <div class="feature-item">Texture &amp; intensity distributions</div>
+            <div class="feature-item">Organelle spatial relationships</div>
+            <div class="feature-item">Per-cell feature vectors</div>
+            <div class="feature-item">Population-level statistics</div>
+            <div class="feature-item">Compatible with standard HCS assays</div>
+        </div>
+    </section>
+
+    <div class="section-rule"></div>
+
+    <!-- Data security -->
+    <section class="content-section callout-section">
+        <div class="section-label">Data Security</div>
+        <h2>Your compound data never leaves your facility.</h2>
+        <p>
+            Analysis runs on a custom-built, managed AI-inference server deployed on your site.
+            No proprietary screening data is transmitted to the cloud. No vendor has access to
+            your compounds, results, or imaging data.
+        </p>
+        <p>
+            For pharmaceutical research, this isn't a feature — it's a requirement.
+            We designed the deployment model around it from the start.
+        </p>
+    </section>
+
+    <div class="section-rule"></div>
+
+    <!-- Why existing tools fall short -->
+    <section class="content-section">
+        <div class="section-label">The Problem With Current Tools</div>
+        <h2>The field has been CPU-bound for decades.</h2>
+        <p>
+            CellProfiler is open source and widely used, but it was designed in an era before
+            GPU computing and modern AI. Each image processes on the CPU, which
+            is why a single plate takes 20 hours. That's not a bottleneck, it's a wall.
+        </p>
+        <p>
+            Commercial alternatives from Revvity, Molecular Devices, and Olympus face the
+            same fundamental constraint, and are additionally tied to proprietary imaging hardware,
+            limiting who can use them. None of them are architected to move faster.
+        </p>
+        <p>
+            We were built from the ground up around GPU kernel engineering and AI inference,
+            not retrofitted onto a CPU pipeline. The speed improvement is fundamental.
+        </p>
+    </section>
+
+    <div class="section-rule"></div>
+
+    <!-- Technology -->
+<!--    <section class="content-section">-->
+<!--        <div class="section-label">The Technology</div>-->
+<!--        <h2>A rare intersection of three disciplines.</h2>-->
+<!--        <p>-->
+<!--            Our approach requires deep expertise across biology, AI, and GPU kernel engineering-->
+<!--            simultaneously — a combination that doesn't exist in a single team at any of our-->
+<!--            existing competitors. This is not a gap they can close quickly.-->
+<!--        </p>-->
+<!--        <p>-->
+<!--            Our models learn from far less human annotation than competing approaches.-->
+<!--            This allowed us to train on 115TB of open-access imaging data that others-->
+<!--            cannot effectively use. As we deploy, that training advantage compounds.-->
+<!--        </p>-->
+<!--        <p class="note">-->
+<!--            The research underlying this technology has just concluded and is not yet published.-->
+<!--            A peer-reviewed benchmark publication is planned within the first 18 months of deployment.-->
+<!--        </p>-->
+<!--    </section>-->
+
+<!--    <div class="section-rule"></div>-->
+
+    <!-- Team -->
+<!--    <section class="content-section">-->
+<!--        <div class="section-label">The Team</div>-->
+<!--        <h2>Built by scientists who understand the problem from the inside.</h2>-->
+<!--        <div class="team-grid">-->
+<!--            <div class="team-member">-->
+<!--                <div class="member-name">Chris Buswinka, Ph.D.</div>-->
+<!--                <div class="member-role">Founder</div>-->
+<!--                <p class="member-bio">-->
+<!--                    Harvard doctorate in biomedical image analysis. Created the core technology-->
+<!--                    spanning AI, biology, and GPU image processing. This is the research problem-->
+<!--                    he spent his graduate career solving.-->
+<!--                </p>-->
+<!--            </div>-->
+<!--            <div class="team-member">-->
+<!--                <div class="member-name">Jack Callahan</div>-->
+<!--                <div class="member-role">Co-Founder</div>-->
+<!--                <p class="member-bio">-->
+<!--                    University of Michigan CS graduate. Led search and integration tooling at CDW.-->
+<!--                    Brings the production engineering discipline to ship software that works-->
+<!--                    reliably at scale.-->
+<!--                </p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
+
+    <div class="section-rule"></div>
+
+    <!-- Current state -->
+    <section class="content-section">
+        <div class="section-label">Where We Are</div>
+        <h2>MVP is available. Beta testing is beginning.</h2>
+        <p>
+            Our minimum viable product for high content screening assays is available now.
+            We are signing first paid pilot customers and beginning beta testing. A peer-reviewed
+            benchmark publication is underway.
+        </p>
+        <p>
+            We are a small team moving quickly. If you are running HCS campaigns and spending
+            meaningful time waiting on analysis, we want to hear from you.
+        </p>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2>Interested in early access?</h2>
+        <p>We're working with a small group of researchers during our beta. Tell us about your work.</p>
+        <a href="form.html"><button class="btn btn--primary">Sign Up for Early Access</button></a>
+    </section>
+
+</body>
+</html>

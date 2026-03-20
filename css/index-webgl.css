@@ -1,443 +1,203 @@
-@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800;900&family=Commissioner:wght@100;200;300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Rubik+Microbe&family=Sen:wght@400..800&family=Tilt+Neon&family=Unbounded:wght@200..900&display=swap');
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-:root {
-    /* Light mode colors */
-    --bg-primary: #ffffff;
-    --bg-panel: rgba(255, 255, 255, 0.95);
-    --bg-card: #f8f9fa;
-    --border-color: #000;
-    --text-primary: #000000;
-    --text-secondary: #222222;
-    --text-tertiary: #333333;
-    --text-quaternary: #444444;
-    --text-muted: #666;
-    --btn-bg: rgba(255,255,255,0.8);
-}
-
-body.dark-mode {
-    /* Dark mode colors */
-    --bg-primary: #1a1a1a;
-    --bg-panel: rgba(30, 30, 30, 0.95);
-    --bg-card: #2a2a2a;
-    --border-color: #404040;
-    --text-primary: #ffffff;
-    --text-secondary: #e0e0e0;
-    --text-tertiary: #d0d0d0;
-    --text-quaternary: #c0c0c0;
-    --text-muted: #999;
-    --btn-bg: rgba(40,40,40,0.8);
+    font-family: 'Commissioner', sans-serif;
 }
 
 body {
-    background: var(--bg-primary);
-    font-family: 'Commissioner', sans-serif;
-    overflow-x: hidden;
-    transition: background-color 0.3s ease;
-}
-
-#canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: 0;
-}
-
-.hero-section {
+    min-height: 100vh;
     position: relative;
-    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-center {
     width: 100%;
 }
 
-.hero-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    z-index: 10;
-}
-
-.logo {
-    font-size: 55px;
-    font-weight: 700;
-    color: var(--text-primary);
-    letter-spacing: -3px;
-    margin-bottom: 20px;
-    pointer-events: none;
-    font-family: "Unbounded", sans-serif;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-
-.name {
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--text-tertiary);
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin-bottom: 40px;
-    pointer-events: none;
-    font-family: "Commissioner", sans-serif;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 8px;
-    justify-content: center;
-    pointer-events: auto;
-}
-
-.btn {
-    padding: 4px 10px;
-    /*width: 13rem;*/
-    font-size: 14px;
-    font-weight: 500;
-    font-family: 'Commissioner', sans-serif;
-    background: var(--btn-bg);
-    color: var(--text-primary);
-    border: 2px solid var(--text-primary);
-    border-radius: 15px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-}
-
-.btn:hover {
-    background: var(--bg-primary);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
-}
-
-.btn-icon {
-    font-size: 18px;
-}
-
-#theme-button {
-    position: fixed;
-    top: 20px;
-    right: 60px;
-    cursor: pointer;
-    z-index: 100;
-    font-size: 20px;
-    color: var(--text-primary);
-    transition: all 0.2s ease;
-}
-
-#theme-button:hover {
-    transform: scale(1.1);
-}
-
-#settings-button {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    cursor: pointer;
-    z-index: 100;
-    font-size: 20px;
-    color: var(--text-primary);
-    transition: all 0.2s ease;
-}
-
-#settings-button:hover {
-    transform: rotate(90deg);
-}
-
-#settings-panel {
-    position: fixed;
-    top: 50px;
-    right: 15px;
-    width: 280px;
-    max-height: 85vh;
-    background: var(--bg-panel);
-    border: 2px solid var(--border-color);
-    border-radius: 6px;
-    padding: 12px;
-    z-index: 99;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    overflow-y: auto;
-    display: none;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-#settings-panel.visible {
+.hero-image {
     display: block;
 }
 
-.panel-header {
-    font-size: 16px;
-    font-weight: 600;
-    font-family: 'Commissioner', sans-serif;
-    margin-bottom: 8px;
-    padding-bottom: 6px;
-    border-bottom: 2px solid var(--border-color);
-    color: var(--text-primary);
-    transition: color 0.3s ease, border-color 0.3s ease;
-}
-
-.stat-group {
-    margin-bottom: 8px;
-}
-
-.stat-label {
-    font-size: 10px;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 2px;
-    font-family: 'Commissioner', sans-serif;
-    font-weight: 400;
-    transition: color 0.3s ease;
-}
-
-.stat-value {
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--text-primary);
-    font-family: monospace;
-    transition: color 0.3s ease;
-}
-
-.control-group {
-    margin-bottom: 12px;
-}
-
-.control-group label {
-    color: var(--text-primary);
-    transition: color 0.3s ease;
-}
-
-.control-label {
-    font-size: 12px;
-    font-weight: 500;
-    font-family: 'Commissioner', sans-serif;
-    margin-bottom: 4px;
+.page-text {
     display: flex;
-    justify-content: space-between;
-    color: var(--text-primary);
-    transition: color 0.3s ease;
-}
-
-.control-value {
-    color: var(--text-muted);
-    font-family: monospace;
-    font-size: 11px;
-    transition: color 0.3s ease;
-}
-
-input[type="range"] {
-    width: 100%;
-    height: 6px;
-    border-radius: 3px;
-    background: var(--border-color);
-    outline: none;
-    -webkit-appearance: none;
-    transition: background-color 0.3s ease;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: var(--text-primary);
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-input[type="range"]::-moz-range-thumb {
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: var(--text-primary);
-    cursor: pointer;
-    border: none;
-    transition: background-color 0.3s ease;
-}
-
-.divider {
-    height: 1px;
-    background: var(--border-color);
-    margin: 8px 0;
-    transition: background-color 0.3s ease;
-}
-
-.action-buttons {
-    display: flex;
-    gap: 6px;
-    margin-top: 10px;
-}
-
-.action-btn {
-    flex: 1;
-    padding: 6px 10px;
-    font-size: 11px;
-    font-weight: 500;
-    font-family: 'Commissioner', sans-serif;
-    background: var(--bg-primary);
-    color: var(--text-primary);
-    border: 1px solid var(--text-primary);
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.action-btn:hover {
-    background: var(--text-primary);
-    color: var(--bg-primary);
-}
-
-.particle-input-group {
-    display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 6px;
-}
-
-.particle-input {
-    flex: 1;
-    padding: 4px 8px;
-    font-size: 16px;
-    font-weight: 700;
-    font-family: monospace;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    background: var(--bg-primary);
-    color: var(--text-primary);
     text-align: center;
-    transition: all 0.3s ease;
+    padding: 0 2rem;
 }
 
-.particle-input:focus {
-    outline: none;
-    border-color: var(--text-primary);
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    width: 160px;
 }
 
-.go-btn {
-    padding: 4px 12px;
-    font-size: 11px;
-    font-weight: 500;
-    font-family: 'Commissioner', sans-serif;
-    background: #4CAF50;
-    color: #ffffff;
-    border: 1px solid #4CAF50;
-    border-radius: 4px;
+.btn {
+    padding: 9px 0;
+    font-size: 0.8rem;
+    letter-spacing: 0.07em;
     cursor: pointer;
-    transition: all 0.2s ease;
-    white-space: nowrap;
+    border-radius: 7px;
+    width: 100%;
+    font-family: 'Commissioner', sans-serif;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
-.go-btn:hover {
-    background: #45a049;
+.btn--primary {
+    background: #111;
+    color: #fff;
+    border: 1px solid #111;
 }
 
-.go-btn.hidden {
-    display: none;
+.btn--primary:hover {
+    background: #333;
+    border-color: #333;
 }
 
-.content-section {
-    position: relative;
-    z-index: 1;
-    background: var(--bg-primary);
-    min-height: 100vh;
-    padding: 120px 20px;
-    transition: background-color 0.3s ease;
+.btn--ghost {
+    background: transparent;
+    color: #888;
+    border: 1px solid #ccc;
 }
 
-body:not(.dark-mode) .content-section {
-    background: linear-gradient(to bottom,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.35) 10%,
-        rgba(255, 255, 255, 0.7) 20%,
-        rgba(255, 255, 255, 0.7) 100%
-    );
-}
-
-body.dark-mode .content-section {
-    background: linear-gradient(to bottom,
-        rgba(26, 26, 26, 0) 0%,
-        rgba(26, 26, 26, 0.35) 10%,
-        rgba(26, 26, 26, 0.7) 20%,
-        rgba(26, 26, 26, 0.7) 100%
-    );
-}
-
-.container {
-    max-width: 750px;
-    margin: 0 auto;
-}
-
-h1 {
-    font-size: 48px;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 30px;
-    line-height: 1.2;
-    font-family: 'Unbounded', sans-serif;
-    transition: color 0.3s ease;
+.btn--ghost:hover {
+    border-color: #888;
+    color: #444;
 }
 
 h2 {
-    font-size: 36px;
-    font-weight: 600;
-    color: var(--text-secondary);
-    margin-top: 60px;
-    margin-bottom: 20px;
     font-family: 'Unbounded', sans-serif;
-    transition: color 0.3s ease;
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.75rem;
 }
 
 p {
-    font-size: 22px;
+    font-size: 1rem;
+    color: #777;
+    line-height: 1.65;
+}
+
+.hero-image {
+    max-width: 50vw;
+    max-height: 50vh;
+    object-fit: contain;
+    margin-bottom: 1.8rem;
+}
+
+/* ── form.html ── */
+
+.form-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6vh 2rem;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 520px;
+}
+
+.form-container h2 {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    margin-bottom: 2rem;
+}
+
+.form-container .subtitle {
+    font-size: 1rem;
     line-height: 1.8;
-    font-weight: 200;
-    color: var(--text-quaternary);
-    margin-bottom: 20px;
+    color: #555;
+    margin-bottom: 1rem;
+    padding-bottom: 0;
+}
+
+.form-container .subtitle:last-of-type {
+    margin-bottom: 2.5rem;
+    padding-bottom: 0;
+}
+
+.form-divider {
+    width: 32px;
+    height: 1px;
+    background: #333;
+    margin: 2rem 0;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin-bottom: 1.4rem;
+}
+
+.form-group label {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #888;
+    font-weight: 500;
+}
+
+.required {
+    color: #333;
+}
+
+.form-group input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    padding: 0.5rem 0;
+    font-size: 0.95rem;
     font-family: 'Commissioner', sans-serif;
-    font-weight: 300;
-    transition: color 0.3s ease;
+    color: #111;
+    transition: border-color 0.2s ease;
+    width: 100%;
 }
 
-.feature-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin: 40px 0;
+.form-group input::placeholder {
+    color: #bbb;
 }
 
-.feature-card {
-    padding: 30px;
-    background: var(--bg-card);
-    border-radius: 8px;
-    border-left: 4px solid var(--text-primary);
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+.form-group input:focus {
+    border-bottom-color: #111;
 }
 
-.feature-card h3 {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 15px;
-    color: var(--text-primary);
+.btn-submit {
+    margin-top: 2rem;
+    background: transparent;
+    border: 1px solid #111;
+    padding: 0.65rem 1.8rem;
     font-family: 'Commissioner', sans-serif;
-    transition: color 0.3s ease;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    border-radius: 9px;
+    transition: background 0.2s ease, color 0.2s ease;
+    width: 100%;
 }
 
-.feature-card p {
-    font-size: 16px;
-    color: var(--text-muted);
-    margin: 0;
-    font-family: 'Commissioner', sans-serif;
-    font-weight: 300;
-    transition: color 0.3s ease;
+.btn-submit:hover {
+    background: #111;
+    color: #fff;
+}
+
+.status {
+    margin-top: 1.2rem;
+    font-size: 0.8rem;
+    color: #555;
+    letter-spacing: 0.04em;
+    min-height: 1.2rem;
 }

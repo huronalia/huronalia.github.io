@@ -1,0 +1,290 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Commissioner', sans-serif;
+}
+
+body {
+    color: #1a1a1a;
+    background: #fff;
+    max-width: 660px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* ── Nav ── */
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.nav-logo {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 300;
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    color: #111;
+}
+
+.nav-cta {
+    font-size: 0.82rem;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    color: #fff;
+    background: #111;
+    border: 1px solid #111;
+    padding: 8px 18px;
+    border-radius: 7px;
+    transition: background 0.2s ease;
+}
+
+.nav-cta:hover {
+    background: #333;
+    border-color: #333;
+}
+
+/* ── Hero ── */
+
+.hero {
+    padding: 7vh 0 5vh;
+}
+
+.overline {
+    font-size: 0.72rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 1.4rem;
+}
+
+.hero h1 {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: 1.9rem;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    color: #111;
+    margin-bottom: 1.2rem;
+}
+
+.hero-sub {
+    font-size: 1.08rem;
+    color: #444;
+    line-height: 1.7;
+}
+
+/* ── Speed stat block ── */
+
+.stat-block {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 4vh 0;
+    flex-wrap: wrap;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.stat-number {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 200;
+    font-size: 2rem;
+    color: #111;
+    letter-spacing: -0.02em;
+}
+
+.stat-label {
+    font-size: 0.82rem;
+    color: #666;
+    letter-spacing: 0.01em;
+    max-width: 140px;
+    line-height: 1.5;
+}
+
+.stat-arrow {
+    font-size: 1.4rem;
+    color: #ccc;
+    flex-shrink: 0;
+}
+
+/* ── Section divider ── */
+
+.section-rule {
+    height: 1px;
+    background: #e8e8e8;
+}
+
+/* ── Content sections ── */
+
+.content-section {
+    padding: 5vh 0;
+}
+
+.section-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 1rem;
+}
+
+.content-section h2 {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    line-height: 1.45;
+    letter-spacing: -0.01em;
+    color: #111;
+    margin-bottom: 1.4rem;
+}
+
+.content-section p {
+    font-size: 1.05rem;
+    color: #333;
+    line-height: 1.8;
+    margin-bottom: 1.1rem;
+}
+
+.content-section p:last-of-type {
+    margin-bottom: 0;
+}
+
+.note {
+    font-size: 0.88rem !important;
+    color: #777 !important;
+    border-left: 2px solid #e0e0e0;
+    padding-left: 1rem;
+    margin-top: 1.4rem !important;
+    line-height: 1.7 !important;
+}
+
+/* ── Callout section ── */
+
+.callout-section {
+    background: #f7f7f7;
+    margin: 0 -2rem;
+    padding: 5vh 2rem;
+}
+
+/* ── Feature grid ── */
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin-top: 2rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.feature-item {
+    padding: 0.9rem 1.1rem;
+    font-size: 0.92rem;
+    color: #333;
+    border-bottom: 1px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
+    line-height: 1.45;
+}
+
+.feature-item:nth-child(even) {
+    border-right: none;
+}
+
+.feature-item:nth-last-child(-n+2) {
+    border-bottom: none;
+}
+
+/* ── Team ── */
+
+.team-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2.2rem;
+    margin-top: 1.5rem;
+}
+
+.team-member {
+    border-left: 2px solid #e0e0e0;
+    padding-left: 1.2rem;
+}
+
+.member-name {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 600;
+    font-size: 0.88rem;
+    color: #111;
+    margin-bottom: 0.25rem;
+}
+
+.member-role {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 0.75rem;
+}
+
+.member-bio {
+    font-size: 0.97rem !important;
+    color: #444 !important;
+    line-height: 1.75 !important;
+    margin-bottom: 0 !important;
+}
+
+/* ── CTA ── */
+
+.cta-section {
+    padding: 7vh 0 8vh;
+    border-top: 1px solid #e8e8e8;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.cta-section h2 {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #111;
+    margin-bottom: 0.7rem;
+}
+
+.cta-section p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    padding: 11px 0;
+    font-size: 0.84rem;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    border-radius: 7px;
+    width: 220px;
+    font-family: 'Commissioner', sans-serif;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn--primary {
+    background: #111;
+    color: #fff;
+    border: 1px solid #111;
+}
+
+.btn--primary:hover {
+    background: #333;
+    border-color: #333;
+}
