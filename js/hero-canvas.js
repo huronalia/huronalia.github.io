@@ -1,4 +1,4 @@
-const FPS = 15;
+const FPS = 2;
 
 const images = [
   "resources/Screenshots_huronalia/7be06c456afc13a1.png",
